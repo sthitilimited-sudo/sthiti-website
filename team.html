@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- Security headers (meta-tag fallback). For maximum protection, set these
+     as HTTP response headers on the server too — see .htaccess and _headers. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Team — Sthiti Limited</title>
+<meta name="description" content="The team behind Sthiti Limited — active members, honorary advisors, past contributors, and events.">
+<link rel="icon" type="image/jpeg" href="sthiti-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Bengali:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sthiti.css">
+<style>
+.team-hero{padding:160px 56px 56px;background:var(--paper);border-bottom:1px solid var(--rule);}
+.team-hero h1{font-size:clamp(2.4rem,5vw,4.2rem);margin-bottom:18px;}
+.team-hero h1 em{color:var(--terracotta);}
+.team-hero p{font-size:1.02rem;max-width:680px;color:var(--taupe);line-height:1.85;}
+
+.tabs{position:sticky;top:74px;z-index:50;background:var(--cream);border-bottom:1px solid var(--rule);padding:18px 56px;display:flex;gap:32px;flex-wrap:wrap;overflow-x:auto;}
+.tabs button{padding:9px 0;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe);background:transparent;border:none;border-bottom:2px solid transparent;transition:all .25s;font-weight:500;white-space:nowrap;cursor:pointer;font-family:'Inter',sans-serif;}
+.tabs button em{font-family:'Playfair Display',serif;font-style:italic;text-transform:none;letter-spacing:.04em;margin-left:6px;font-size:.95rem;}
+.tabs button:hover{color:var(--charcoal);}
+.tabs button.active{color:var(--forest);border-bottom-color:var(--forest);}
+
+.tab-pane{display:none;padding:60px 56px 100px;max-width:1400px;margin:0 auto;}
+.tab-pane.active{display:block;}
+.tab-pane.dark{background:var(--forest);max-width:none;}
+.tab-pane.dark .inner{max-width:1400px;margin:0 auto;}
+.tab-pane.dark h2,.tab-pane.dark h3,.tab-pane.dark p{color:var(--cream);}
+
+.sub-head{font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;color:var(--olive);margin:0 0 26px 0;font-weight:500;}
+.sub-head + .person-grid,.sub-head + .advisor-grid{margin-bottom:60px;}
+
+/* Standard active/contributor card.
+   Outer is a div container; .person-card-main is the clickable area;
+   .person-socials sits as a sibling at the bottom (kept out of the link to
+   avoid nested-anchor HTML5 violations that break layout). */
+.person-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;}
+.person-card{background:var(--paper);border:1px solid var(--rule);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;transition:all .3s ease;}
+.person-card:hover{transform:translateY(-3px);border-color:var(--forest);box-shadow:0 12px 32px rgba(20,15,10,.08);}
+.person-card-main{display:flex;flex-direction:column;text-decoration:none;color:inherit;cursor:pointer;}
+.person-photo{aspect-ratio:4/5;background:var(--sand);overflow:hidden;position:relative;}
+.person-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.person-photo.placeholder{display:flex;align-items:center;justify-content:center;color:var(--taupe);font-family:'Playfair Display',serif;font-size:3rem;font-style:italic;}
+.person-info-top{padding:18px 20px 12px;}
+.person-info-top .pname{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--charcoal);font-weight:400;line-height:1.25;margin-bottom:5px;}
+.person-info-top .prole{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);margin-bottom:8px;font-weight:500;}
+.person-info-top .ptl{font-size:.72rem;color:var(--taupe);font-style:italic;}
+.person-info-top .view{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);margin-top:12px;font-weight:500;}
+.person-socials-wrap{padding:0 20px 16px;}
+.person-socials{display:flex;gap:8px;padding-top:14px;border-top:1px solid var(--rule);}
+.person-socials a,.person-socials span{width:26px;height:26px;border:1px solid var(--rule);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--forest);transition:.2s;text-decoration:none;background:transparent;}
+.person-socials a:hover{background:var(--forest);border-color:var(--forest);color:var(--cream);}
+.person-socials svg{width:10px;height:10px;fill:currentColor;}
+.person-socials .disabled{opacity:.28;cursor:default;pointer-events:none;}
+
+/* Advisor card — matches user screenshot */
+.advisor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:32px;}
+.advisor-card{background:var(--forest-d);border:1px solid rgba(244,239,230,.14);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:all .3s ease;}
+.advisor-card:hover{border-color:var(--clay);transform:translateY(-3px);box-shadow:0 18px 36px rgba(0,0,0,.18);}
+.advisor-photo{position:relative;aspect-ratio:4/5;background:var(--forest);overflow:hidden;}
+.advisor-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.advisor-photo.placeholder{display:flex;align-items:center;justify-content:center;color:rgba(244,239,230,.4);font-family:'Playfair Display',serif;font-size:3.5rem;font-style:italic;}
+.advisor-badge{position:absolute;left:14px;bottom:14px;background:rgba(20,15,10,.78);color:var(--cream);padding:7px 14px;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;border-radius:2px;backdrop-filter:blur(4px);}
+.advisor-info{padding:24px 26px 22px;flex-grow:1;display:flex;flex-direction:column;}
+.advisor-role-line{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--clay);font-weight:500;margin-bottom:10px;line-height:1.5;}
+.advisor-name{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:400;color:var(--cream);line-height:1.25;margin-bottom:14px;}
+.advisor-name a{color:inherit;text-decoration:none;border-bottom:1px solid transparent;transition:.2s;}
+.advisor-name a:hover{border-bottom-color:var(--clay);}
+.advisor-counsel{font-family:'Playfair Display',serif;font-style:italic;font-size:.96rem;line-height:1.7;color:rgba(244,239,230,.78);margin-bottom:20px;flex-grow:1;}
+.advisor-socials{display:flex;gap:10px;margin-top:auto;padding-top:18px;border-top:1px solid rgba(244,239,230,.12);}
+.advisor-socials a{width:32px;height:32px;border:1px solid rgba(244,239,230,.22);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--cream);transition:.25s;text-decoration:none;}
+.advisor-socials a:hover{background:var(--clay);border-color:var(--clay);color:var(--forest-d);}
+.advisor-socials svg{width:13px;height:13px;fill:currentColor;}
+.advisor-socials .disabled{opacity:.28;pointer-events:none;}
+.advisor-view{display:inline-block;margin-top:14px;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--clay);font-weight:500;text-decoration:none;border-bottom:1px solid transparent;}
+.advisor-view:hover{border-bottom-color:var(--clay);}
+
+.gallery-empty{padding:60px 0;text-align:center;color:var(--taupe);font-style:italic;}
+
+@media(max-width:900px){
+  .team-hero{padding:120px 24px 48px;}
+  .tabs{padding:14px 18px;top:64px;gap:20px;}
+  .tab-pane{padding:48px 18px 60px;}
+  .advisor-grid{grid-template-columns:1fr;gap:24px;}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="sthiti-logo.jpg" alt="Sthiti Limited"><span class="nav-logo-text">Sthiti Limited</span></a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li><li><a href="studio.html">Studio</a></li>
+    <li><a href="services.html">Service</a></li><li><a href="journal.html">Journal</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li><li><a href="mail.html">Email</a></li>
+    <li><a href="contact.html" class="nav-cta">Enquire</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="work.html">Work</a><a href="studio.html">Studio</a><a href="services.html">Service</a>
+  <a href="journal.html">Journal</a><a href="newsletter.html">Newsletter</a><a href="mail.html">Email</a><a href="contact.html">Contact</a>
+</div>
+
+<section class="team-hero">
+  <div class="eyebrow">Team Directory</div>
+  <h1>The team behind <em>Sthiti</em>.</h1>
+  <p>Every member, advisor, and past contributor &mdash; across a decade of practice. Click any card to open that person&rsquo;s full profile in a new tab.</p>
+</section>
+
+<div class="tabs">
+  <button data-tab="active" class="active">Currently <em>Active</em></button>
+  <button data-tab="advisors">Honorary <em>Advisors</em></button>
+  <button data-tab="contributors">Past <em>Contributors</em></button>
+  <button data-tab="events">Events <em>Gallery</em></button>
+</div>
+
+<section class="tab-pane active" id="pane-active"></section>
+<section class="tab-pane dark" id="pane-advisors"><div class="inner"></div></section>
+<section class="tab-pane" id="pane-contributors"></section>
+<section class="tab-pane" id="pane-events"></section>
+
+<footer id="siteFooter"></footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="admin.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  /* Standard person card (active / contributors).
+     The outer wrapper is a div, not an anchor — nested anchors are
+     invalid HTML5 (browsers auto-close the outer one) and would leak
+     the social row out of the card whenever any social link is set. */
+  function personCard(p){
+    var name = String(p.name || '');
+    var nameParts = name.split(' ');
+    var initials = (nameParts[0] ? nameParts[0].charAt(0) : '') + (nameParts.length > 1 ? nameParts[nameParts.length-1].charAt(0) : '');
+    initials = initials.slice(0,2);
+    var photoHtml;
+    if(p.photo){
+      photoHtml = '<div class="person-photo"><img src="'+ window.escAttr(p.photo) +'" alt="'+ window.escAttr(p.name) +'" loading="lazy"></div>';
+    } else {
+      photoHtml = '<div class="person-photo placeholder">'+ window.esc(initials) +'</div>';
+    }
+
+    var links = p.links || {};
+    function soc(url, svg, title){
+      var safe = window.safeUrl(url);
+      if(!safe){
+        return '<span class="disabled" title="'+ window.escAttr(title + ' (not set)') +'" aria-hidden="true">'+ svg +'</span>';
+      }
+      return '<a href="'+ window.escAttr(safe) +'" target="_blank" rel="noopener noreferrer" title="'+ window.escAttr(title) +'" aria-label="'+ window.escAttr(title) +'">'+ svg +'</a>';
+    }
+    var socialRow =
+      '<div class="person-socials">'+
+        soc(links.facebook,  window.ICON_FB, 'Facebook') +
+        soc(links.instagram, window.ICON_IG, 'Instagram') +
+        soc(links.x,         window.ICON_X,  'X (Twitter)') +
+        soc(links.linkedin,  window.ICON_LI, 'LinkedIn') +
+      '</div>';
+
+    return '<div class="person-card">'+
+      '<a class="person-card-main" href="person.html?id='+ encodeURIComponent(p.id) +'" target="_blank" rel="noopener noreferrer">'+
+        photoHtml +
+        '<div class="person-info-top">'+
+          '<div class="pname">'+ window.esc(p.name) +'</div>'+
+          '<div class="prole">'+ window.esc(p.role) +'</div>'+
+          '<div class="ptl">'+ window.esc(p.timeline) +'</div>'+
+          '<div class="view">View profile &rarr;</div>'+
+        '</div>'+
+      '</a>'+
+      '<div class="person-socials-wrap">'+ socialRow +'</div>'+
+    '</div>';
+  }
+
+  /* Advisor card — matches user screenshot */
+  function advisorCard(p){
+    var name = String(p.name || '');
+    var nameParts = name.split(' ');
+    var initials = (nameParts[0] ? nameParts[0].charAt(0) : '') + (nameParts.length > 1 ? nameParts[nameParts.length-1].charAt(0) : '');
+    initials = initials.slice(0,2);
+
+    var photoHtml;
+    if(p.photo){
+      photoHtml = '<div class="advisor-photo"><img src="'+ window.escAttr(p.photo) +'" alt="'+ window.escAttr(p.name) +'" loading="lazy">'+
+        '<div class="advisor-badge">'+ window.esc(p.timeline || 'Honorary Advisor') +'</div>'+
+      '</div>';
+    } else {
+      photoHtml = '<div class="advisor-photo placeholder">'+ window.esc(initials) +
+        '<div class="advisor-badge">'+ window.esc(p.timeline || 'Honorary Advisor') +'</div>'+
+      '</div>';
+    }
+
+    /* Build social icons — 4 (FB, IG, X, LI). Disabled state if no URL. */
+    var links = p.links || {};
+    function social(url, svg, title){
+      var safe = window.safeUrl(url);
+      if(!safe){
+        return '<span class="disabled" title="'+ window.escAttr(title) +' (not set)" aria-hidden="true">'+ svg +'</span>';
+      }
+      return '<a href="'+ window.escAttr(safe) +'" target="_blank" rel="noopener noreferrer" title="'+ window.escAttr(title) +'" aria-label="'+ window.escAttr(title) +'">'+ svg +'</a>';
+    }
+    var socialHtml =
+      social(links.facebook,  window.ICON_FB, 'Facebook') +
+      social(links.instagram, window.ICON_IG, 'Instagram') +
+      social(links.x,         window.ICON_X,  'X (Twitter)') +
+      social(links.linkedin,  window.ICON_LI, 'LinkedIn');
+
+    var profileUrl = 'person.html?id='+ encodeURIComponent(p.id);
+
+    return '<article class="advisor-card">'+
+      photoHtml +
+      '<div class="advisor-info">'+
+        '<div class="advisor-role-line">'+ window.esc(p.role) +'</div>'+
+        '<h3 class="advisor-name"><a href="'+ window.escAttr(profileUrl) +'" target="_blank" rel="noopener noreferrer">'+ window.esc(p.name) +'</a></h3>'+
+        (p.counsel ? '<p class="advisor-counsel">&ldquo;'+ window.esc(p.counsel) +'&rdquo;</p>' : '') +
+        '<a class="advisor-view" href="'+ window.escAttr(profileUrl) +'" target="_blank" rel="noopener noreferrer">View full profile &rarr;</a>'+
+        '<div class="advisor-socials">'+ socialHtml +'</div>'+
+      '</div>'+
+    '</article>';
+  }
+
+  /* === Active tab === */
+  var activeHtml = '';
+  if((window.ACTIVE_ARCHITECTS || []).length){
+    activeHtml += '<div class="sub-head">&mdash; Architects</div><div class="person-grid">';
+    window.ACTIVE_ARCHITECTS.forEach(function(p){ activeHtml += personCard(p); });
+    activeHtml += '</div>';
+  }
+  if((window.ACTIVE_ENGINEERS || []).length){
+    activeHtml += '<div class="sub-head">&mdash; Engineers</div><div class="person-grid">';
+    window.ACTIVE_ENGINEERS.forEach(function(p){ activeHtml += personCard(p); });
+    activeHtml += '</div>';
+  }
+  if((window.ACTIVE_ADMIN || []).length){
+    activeHtml += '<div class="sub-head">&mdash; Admin &amp; Accounts</div><div class="person-grid">';
+    window.ACTIVE_ADMIN.forEach(function(p){ activeHtml += personCard(p); });
+    activeHtml += '</div>';
+  }
+  document.getElementById('pane-active').innerHTML = activeHtml;
+
+  /* === Advisors tab (dark) === */
+  var advHtml = '<div class="sub-head" style="color:rgba(244,239,230,.6);">&mdash; Honorary Advisory Panel</div>'+
+                '<div class="advisor-grid">';
+  (window.ADVISORY_PANEL || []).forEach(function(p){ advHtml += advisorCard(p); });
+  advHtml += '</div>';
+  document.querySelector('#pane-advisors .inner').innerHTML = advHtml;
+
+  /* === Contributors tab === */
+  var contribHtml = '';
+  if((window.CONTRIB_DIRECTORS || []).length){
+    contribHtml += '<div class="sub-head">&mdash; Past Directors</div><div class="person-grid">';
+    window.CONTRIB_DIRECTORS.forEach(function(p){ contribHtml += personCard(p); });
+    contribHtml += '</div>';
+  }
+  if((window.CONTRIB_ARCHITECTS || []).length){
+    contribHtml += '<div class="sub-head">&mdash; Past Architects</div><div class="person-grid">';
+    window.CONTRIB_ARCHITECTS.forEach(function(p){ contribHtml += personCard(p); });
+    contribHtml += '</div>';
+  }
+  if((window.CONTRIB_ENGINEERS || []).length){
+    contribHtml += '<div class="sub-head">&mdash; Past Diploma Engineers</div><div class="person-grid">';
+    window.CONTRIB_ENGINEERS.forEach(function(p){ contribHtml += personCard(p); });
+    contribHtml += '</div>';
+  }
+  document.getElementById('pane-contributors').innerHTML = contribHtml;
+
+  /* === Events tab — placeholder === */
+  document.getElementById('pane-events').innerHTML =
+    '<div class="sub-head">&mdash; Studio Events</div>'+
+    '<p class="gallery-empty">Events photographs will be added here. Iftar gatherings, award ceremonies, site visits, and studio milestones.</p>';
+
+  /* Tab routing */
+  function showTab(tabKey){
+    document.querySelectorAll('.tabs button').forEach(function(b){
+      b.classList.toggle('active', b.dataset.tab === tabKey);
+    });
+    document.querySelectorAll('.tab-pane').forEach(function(p){
+      p.classList.toggle('active', p.id === 'pane-' + tabKey);
+    });
+    window.scrollTo({top:document.querySelector('.tabs').offsetTop - 80, behavior:'smooth'});
+  }
+  document.querySelectorAll('.tabs button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var t = b.dataset.tab;
+      showTab(t);
+      history.replaceState(null, '', '#' + t);
+    });
+  });
+  var hash = (window.location.hash || '#active').replace('#','');
+  if(['active','advisors','contributors','events'].indexOf(hash) !== -1){
+    /* Honor hash on load — but without scroll-jump on initial */
+    document.querySelectorAll('.tabs button').forEach(function(b){
+      b.classList.toggle('active', b.dataset.tab === hash);
+    });
+    document.querySelectorAll('.tab-pane').forEach(function(p){
+      p.classList.toggle('active', p.id === 'pane-' + hash);
+    });
+  }
+})();
+</script>
+</body>
+</html>

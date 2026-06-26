@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- Security headers (meta-tag fallback). For maximum protection, set these
+     as HTTP response headers on the server too — see .htaccess and _headers. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Studio — Sthiti Limited</title>
+<meta name="description" content="Sthiti Limited is a Bangladesh architecture studio founded 16 December 2016 in Dhaka by Tajbir Ahmed Khan Rupok. Incorporated December 2025.">
+<link rel="icon" type="image/jpeg" href="sthiti-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Bengali:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sthiti.css">
+<style>
+.std-hero{padding:170px 56px 100px;background:var(--paper);}
+.std-hero .eyebrow{margin-bottom:32px;}
+.std-hero h1{font-size:clamp(2.4rem,5.4vw,4.6rem);max-width:1000px;margin-bottom:44px;}
+.std-hero .lede{font-size:clamp(1.35rem,2vw,1.7rem);line-height:1.7;color:var(--taupe);max-width:880px;font-weight:300;letter-spacing:.005em;}
+.std-hero .lede em{font-style:italic;color:var(--charcoal);}
+
+.std-section{padding:96px 56px;}
+.std-section .container{max-width:1280px;margin:0 auto;}
+.std-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;}
+.std-grid h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:24px;}
+.std-grid h2 em{color:var(--terracotta);}
+.std-grid p{font-size:1.02rem;line-height:1.95;color:var(--taupe);margin-bottom:18px;}
+
+.values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;margin-top:32px;}
+.value{padding:28px;background:var(--paper);border-left:3px solid var(--terracotta);border-radius:2px;}
+.value h3{font-size:1.15rem;margin-bottom:12px;color:var(--charcoal);}
+.value p{font-size:.95rem;line-height:1.7;color:var(--taupe);}
+
+.timeline{margin-top:48px;border-left:1px solid var(--rule);padding-left:36px;}
+.tl-item{margin-bottom:36px;position:relative;}
+.tl-item::before{content:'';position:absolute;left:-44px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--forest);}
+.tl-year{font-family:'Playfair Display',serif;font-style:italic;font-size:.95rem;color:var(--terracotta);margin-bottom:6px;}
+.tl-event{font-size:1rem;line-height:1.6;color:var(--charcoal);}
+
+.team-preview{padding:80px 56px;background:var(--sand);}
+.team-preview .head{display:flex;justify-content:space-between;align-items:end;margin-bottom:36px;gap:24px;flex-wrap:wrap;}
+.team-preview h2{font-size:clamp(1.8rem,3.4vw,2.6rem);}
+.team-preview h2 em{color:var(--terracotta);}
+.preview-strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px;margin-bottom:36px;}
+.preview-strip:last-of-type{margin-bottom:0;}
+.row-label{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--olive);font-weight:500;margin:8px 0 18px;}
+.row-label:first-of-type{margin-top:0;}
+.preview-row-director{grid-template-columns:repeat(auto-fill,minmax(180px,220px));justify-content:start;}
+@media(max-width:560px){
+  .preview-strip{grid-template-columns:repeat(2,1fr);gap:14px;}
+  .preview-row-director{grid-template-columns:repeat(2,1fr);}
+}
+.pcard{background:var(--paper);border:1px solid var(--rule);padding:18px 18px 14px;border-radius:3px;display:flex;flex-direction:column;align-items:center;text-align:center;transition:.25s;}
+.pcard:hover{border-color:var(--forest);transform:translateY(-2px);box-shadow:0 6px 14px rgba(31,95,58,.08);}
+.pcard-main{text-decoration:none;color:inherit;display:flex;flex-direction:column;align-items:center;width:100%;}
+.pcard img{width:88px;height:88px;border-radius:50%;object-fit:cover;margin-bottom:12px;background:var(--sand);}
+.pcard .placeholder{width:88px;height:88px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--olive);margin-bottom:12px;}
+.pcard .name{font-family:'Playfair Display',serif;font-size:.98rem;color:var(--charcoal);margin-bottom:4px;}
+.pcard .role{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--olive);}
+.pcard-socials{display:flex;gap:7px;margin-top:12px;padding-top:12px;border-top:1px solid var(--rule);width:100%;justify-content:center;}
+.pcard-socials a,.pcard-socials span{width:24px;height:24px;border:1px solid var(--rule);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--forest);transition:.2s;text-decoration:none;background:transparent;}
+.pcard-socials a:hover{background:var(--forest);border-color:var(--forest);color:var(--cream);}
+.pcard-socials svg{width:9px;height:9px;fill:currentColor;}
+.pcard-socials .disabled{opacity:.28;cursor:default;pointer-events:none;}
+
+@media(max-width:900px){
+  .std-hero{padding:130px 24px 60px;}
+  .std-section,.team-preview{padding:60px 24px;}
+  .std-grid{grid-template-columns:1fr;gap:40px;}
+  .values-grid{grid-template-columns:1fr;gap:24px;}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="sthiti-logo.jpg" alt="Sthiti Limited"><span class="nav-logo-text">Sthiti Limited</span></a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li><li><a href="studio.html">Studio</a></li>
+    <li><a href="services.html">Service</a></li><li><a href="journal.html">Journal</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li><li><a href="mail.html">Email</a></li>
+    <li><a href="contact.html" class="nav-cta">Enquire</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="work.html">Work</a><a href="studio.html">Studio</a><a href="services.html">Service</a>
+  <a href="journal.html">Journal</a><a href="newsletter.html">Newsletter</a><a href="mail.html">Email</a><a href="contact.html">Contact</a>
+</div>
+
+<section class="std-hero">
+  <div class="eyebrow">The Studio</div>
+  <h1>An architecture practice from Dhaka, <em>since 2016.</em></h1>
+  <p class="lede">Sthiti Limited is a Bangladesh-based architecture studio founded by Tajbir Ahmed Khan Rupok on 16 December 2016 under the name <em>Sthiti Sthapotto</em>, and incorporated as Sthiti Limited in December 2025. Across ten years of practice the studio has held its founding line of authority unbroken &mdash; one principal architect, one chief engineer, one chain of judgment from brief to handover.</p>
+</section>
+
+<section class="std-section">
+  <div class="container">
+    <div class="std-grid">
+      <div>
+        <div class="eyebrow">Origin</div>
+        <h2>Founded on a civic <em>commission.</em></h2>
+      </div>
+      <div>
+        <p>The studio began with a single brief &mdash; the Bangladesh Police Liberation War Museum at Rajarbag. The work was delivered four days ahead of schedule and inaugurated in 2017. That founding commission set the studio&rsquo;s discipline: civic intent, technical rigour, and a refusal to dilute design responsibility through outsourcing.</p>
+        <p>Sthiti grew from that commission into a multi-discipline practice working across architecture, masterplan, landscape, interior, and construction management. The studio takes the project from first site visit through handover, with senior architects involved at every stage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="std-section alt">
+  <div class="container">
+    <div class="std-grid">
+      <div>
+        <div class="eyebrow">Principles</div>
+        <h2>What the studio <em>holds.</em></h2>
+        <p>Four convictions shape every project Sthiti takes on.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value"><h3>Site First</h3><p>No project starts with a style. It starts with climate, orientation, neighbours, soil and brief.</p></div>
+        <div class="value"><h3>One Authority</h3><p>One principal architect, one chief engineer. No project is quietly handed to a junior to finish.</p></div>
+        <div class="value"><h3>Built Lines</h3><p>The drawing line and the built line are the same line. Construction management stays in-studio.</p></div>
+        <div class="value"><h3>Civic Tone</h3><p>Even a private residence carries civic responsibility &mdash; to its street, its neighbours and its city.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="std-section">
+  <div class="container">
+    <div class="std-grid">
+      <div>
+        <div class="eyebrow">Timeline</div>
+        <h2>A decade of <em>practice.</em></h2>
+      </div>
+      <div>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-year">16 December 2016</div><div class="tl-event">Tajbir Ahmed Khan Rupok founded Sthiti Sthapotto and initiated the practice with Nazmus Sakib and Saiful Islam Raihan.</div></div>
+          <div class="tl-item"><div class="tl-year">23 January 2017</div><div class="tl-event">Bangladesh Police Liberation War Museum at Rajarbag inaugurated. Sthiti completed the design and construction within 51 days &mdash; one month and twenty days from start to handover.</div></div>
+          <div class="tl-item"><div class="tl-year">January 2018</div><div class="tl-event">Sthiti began the design masterplanning of the BEPZA Economic Zone, Mirsarai, as a sub-consultant of JPZ Bangladesh (PVT) Ltd. This year, Sthiti also proposed the Masterplan for BARD, Comilla, and completed numerous exterior and interior projects.</div></div>
+          <div class="tl-item"><div class="tl-year">2019</div><div class="tl-event">Proposed a masterplan for Netrokona University, Netrokona. Sthiti took first place in the design presentation, with the extraordinary conceptual presentation by Architect Farah Chowdhury, where Tehami Hasan also contributed his presentation skills, and the full university&rsquo;s psychological philosophy was guided by philosopher Mohammad Saleh Rabbi Jyoti. This year, Sthiti also proposed a Masterplan for Comilla University Phase 2, in association with JPZ Bangladesh (PVT) Ltd.</div></div>
+          <div class="tl-item"><div class="tl-year">2020</div><div class="tl-event">Designed the Head Office for OMEGA Ltd at Panthapath, Dhaka.</div></div>
+          <div class="tl-item"><div class="tl-year">2022</div><div class="tl-event">Mazhar Uddin Chowdhury Prince joined Sthiti as Partner and Director.</div></div>
+          <div class="tl-item"><div class="tl-year">2023</div><div class="tl-event">Mazhar Uddin Chowdhury Prince awarded by the Institute of Architects Bangladesh (IAB) for his PMG Gallery project at his previous office, DWM4 Internds. From April 2023 to November 2024, Sthiti designed and constructed the Vacation House at Narail. The studio delivered a significant volume of interior and exterior projects, building a reputation for design with efficiency within budget.</div></div>
+          <div class="tl-item"><div class="tl-year">December 2025</div><div class="tl-event">Sthiti Sthapotto incorporated into Sthiti Limited.</div></div>
+          <div class="tl-item"><div class="tl-year">2026</div><div class="tl-event">Sthiti Limited is expanding its multidisciplinary venture across architecture, masterplan, landscape, interior and construction management.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team-preview">
+  <div class="container">
+    <div class="head">
+      <h2>The <em>team.</em></h2>
+      <a href="team.html" class="btn btn-ghost">See full team &amp; advisors &rarr;</a>
+    </div>
+
+    <div class="row-label">&mdash; Founder &amp; Director</div>
+    <div class="preview-strip preview-row-top" id="rowFounder"></div>
+
+    <div class="row-label">&mdash; Honorary Advisors</div>
+    <div class="preview-strip" id="rowAdvisors"></div>
+
+    <div class="row-label">&mdash; Studio</div>
+    <div class="preview-strip preview-row-staff" id="rowStaff"></div>
+  </div>
+</section>
+
+<footer id="siteFooter"></footer>
+<button class="admin-fab" id="adminFab" onclick="openAdmin()" title="Admin (Ctrl+Shift+A)">⚙</button>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="admin.js"></script>
+<script>
+(function(){
+  'use strict';
+  /* Build three deliberate rows for the studio preview:
+     Row 1: Founder (Tajbir) + Honorary Advisors
+     Row 2: Director (Mazhar) alone
+     Row 3: Rest of the studio (other architects, engineer, admin)
+     Filtering by id keeps it robust if data.js order changes. */
+  var architects = window.ACTIVE_ARCHITECTS || [];
+  var engineers  = window.ACTIVE_ENGINEERS  || [];
+  var admin      = window.ACTIVE_ADMIN      || [];
+  var advisors   = window.ADVISORY_PANEL    || [];
+
+  function findById(arr, id){
+    for(var i=0;i<arr.length;i++){ if(arr[i].id === id) return arr[i]; }
+    return null;
+  }
+
+  var founder = findById(architects, 'tajbir');
+  var director = findById(architects, 'mazhar');
+  var restArchitects = architects.filter(function(p){ return p.id !== 'tajbir' && p.id !== 'mazhar'; });
+
+  var rowFounder = (founder ? [founder] : []).concat(director ? [director] : []);
+  var rowAdvisors = advisors;
+  var rowStaff = restArchitects.concat(engineers).concat(admin);
+
+  function renderCard(p){
+    var initial = window.esc((p.name || '?').charAt(0));
+    var img = p.photo
+      ? '<img src="'+ window.escAttr(p.photo) +'" alt="'+ window.escAttr(p.name) +'" loading="lazy">'
+      : '<div class="placeholder">'+ initial +'</div>';
+    var url = 'person.html?id='+ encodeURIComponent(p.id);
+
+    var links = p.links || {};
+    function soc(u, svg, title){
+      var safe = window.safeUrl(u);
+      if(!safe) return '<span class="disabled" title="'+ window.escAttr(title + ' (not set)') +'" aria-hidden="true">'+ svg +'</span>';
+      return '<a href="'+ window.escAttr(safe) +'" target="_blank" rel="noopener noreferrer" title="'+ window.escAttr(title) +'" aria-label="'+ window.escAttr(title) +'">'+ svg +'</a>';
+    }
+    var socials =
+      '<div class="pcard-socials">'+
+        soc(links.facebook,  window.ICON_FB, 'Facebook') +
+        soc(links.instagram, window.ICON_IG, 'Instagram') +
+        soc(links.x,         window.ICON_X,  'X (Twitter)') +
+        soc(links.linkedin,  window.ICON_LI, 'LinkedIn') +
+      '</div>';
+
+    /* Wrapper is a div, not an anchor — nested anchors are invalid HTML5
+       and browsers will auto-close the outer one, leaking the social row
+       out of the card. The photo+name area is its own anchor. */
+    return '<div class="pcard">'+
+      '<a class="pcard-main" href="'+ window.escAttr(url) +'" target="_blank" rel="noopener noreferrer">'+
+        img +
+        '<div class="name">'+ window.esc(p.name) +'</div>'+
+        '<div class="role">'+ window.esc(p.role) +'</div>'+
+      '</a>'+
+      socials +
+    '</div>';
+  }
+
+  document.getElementById('rowFounder').innerHTML  = rowFounder.map(renderCard).join('');
+  document.getElementById('rowAdvisors').innerHTML = rowAdvisors.map(renderCard).join('');
+  document.getElementById('rowStaff').innerHTML    = rowStaff.map(renderCard).join('');
+})();
+</script>
+</body>
+</html>

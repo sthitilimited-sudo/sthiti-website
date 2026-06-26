@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- Security headers (meta-tag fallback). For maximum protection, set these
+     as HTTP response headers on the server too — see .htaccess and _headers. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Journal — Sthiti Limited</title>
+<meta name="description" content="Notes from the studio — writing on architecture, place, and the practice of building in Bangladesh.">
+<link rel="icon" type="image/jpeg" href="sthiti-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Bengali:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sthiti.css">
+<style>
+.j-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:32px;max-width:1320px;margin:0 auto;}
+.j-card{background:var(--paper);border:1px solid var(--rule);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;transition:all .3s ease;}
+.j-card:hover{border-color:var(--forest);transform:translateY(-4px);box-shadow:0 16px 40px rgba(20,15,10,.08);}
+.j-hero{aspect-ratio:16/10;background:var(--sand);overflow:hidden;position:relative;display:block;}
+.j-hero img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;}
+.j-card:hover .j-hero img{transform:scale(1.04);}
+.j-hero .j-cat-tag{position:absolute;left:14px;bottom:14px;background:rgba(20,15,10,.78);color:var(--cream);padding:6px 12px;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;border-radius:2px;backdrop-filter:blur(4px);}
+.j-body{padding:28px 30px 24px;display:flex;flex-direction:column;flex-grow:1;}
+.j-meta{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--olive);margin-bottom:14px;font-weight:500;}
+.j-meta .dot{display:inline-block;width:4px;height:4px;background:var(--olive);border-radius:50%;margin:0 10px;vertical-align:middle;}
+.j-title{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:300;line-height:1.3;margin-bottom:14px;color:var(--charcoal);}
+.j-title em{font-style:italic;color:var(--terracotta);}
+.j-title a{color:inherit;text-decoration:none;border-bottom:1px solid transparent;transition:.2s;}
+.j-title a:hover{border-bottom-color:var(--terracotta);}
+.j-excerpt{font-size:.96rem;line-height:1.75;color:var(--taupe);flex-grow:1;}
+.j-footer{margin-top:22px;padding-top:18px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;}
+.j-more{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terracotta);font-weight:500;}
+.j-share{display:flex;gap:8px;}
+.j-share button,.j-share a{width:30px;height:30px;border:1px solid var(--rule);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--forest);transition:.25s;cursor:pointer;text-decoration:none;padding:0;}
+.j-share button:hover,.j-share a:hover{background:var(--forest);color:var(--cream);border-color:var(--forest);}
+.j-share svg{width:12px;height:12px;fill:currentColor;}
+.j-share .copied-flash{background:var(--olive)!important;border-color:var(--olive)!important;color:var(--cream)!important;}
+
+.coming{text-align:center;padding:80px 24px 20px;color:var(--taupe);max-width:680px;margin:60px auto 0;border-top:1px solid var(--rule);}
+.coming .icon{font-family:'Playfair Display',serif;font-style:italic;font-size:3rem;color:var(--sage);margin-bottom:16px;}
+.coming h3{font-family:'Playfair Display',serif;font-weight:300;font-size:1.4rem;margin-bottom:14px;color:var(--charcoal);}
+.coming p{font-size:1rem;line-height:1.75;}
+
+@media(max-width:900px){
+  .j-grid{grid-template-columns:1fr;gap:24px;}
+  .j-body{padding:22px 24px 22px;}
+  .j-title{font-size:1.3rem;}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="sthiti-logo.jpg" alt="Sthiti Limited"><span class="nav-logo-text">Sthiti Limited</span></a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li><li><a href="studio.html">Studio</a></li>
+    <li><a href="services.html">Service</a></li><li><a href="journal.html">Journal</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li><li><a href="mail.html">Email</a></li>
+    <li><a href="contact.html" class="nav-cta">Enquire</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="work.html">Work</a><a href="studio.html">Studio</a><a href="services.html">Service</a>
+  <a href="journal.html">Journal</a><a href="newsletter.html">Newsletter</a><a href="mail.html">Email</a><a href="contact.html">Contact</a>
+</div>
+
+<section class="page-hero">
+  <div class="eyebrow">Studio Journal</div>
+  <h1>Notes from <em>the practice</em>.</h1>
+  <p>Writing on architecture, place, material and the everyday discipline of building in Bangladesh &mdash; observations from completed projects, current work and the studio&rsquo;s reading.</p>
+</section>
+
+<section style="background:var(--cream);padding:60px 24px 80px;">
+  <div class="j-grid" id="journalGrid"></div>
+
+  <div class="coming">
+    <div class="icon">~</div>
+    <h3>More writing in preparation.</h3>
+    <p>The studio is preparing longer-form essays on residential interior practice, the role of the architect in construction management, and the founding-era projects of Sthiti Sthapotto.</p>
+  </div>
+</section>
+
+<footer id="siteFooter"></footer>
+<button class="admin-fab" id="adminFab" onclick="openAdmin()" title="Admin (Ctrl+Shift+A)">&#9881;</button>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="admin.js"></script>
+<script>
+(function(){
+  'use strict';
+  var grid = document.getElementById('journalGrid');
+  var entries = window.JOURNAL_ENTRIES || [];
+
+  function shareButton(href, svg, title){
+    return '<a href="'+ window.escAttr(href) +'" target="_blank" rel="noopener noreferrer" title="Share on '+ window.escAttr(title) +'" aria-label="Share on '+ window.escAttr(title) +'">'+ svg +'</a>';
+  }
+
+  function buildCard(e){
+    /* Articles aren't written yet — the card itself doesn't link anywhere.
+       Share buttons still work because they share the journal page itself with an anchor.
+       When real article content is added, swap the <div class="j-hero"> back to an <a>
+       and the .j-title <span> back to an <a>. */
+    var shareUrl;
+    try {
+      shareUrl = window.location.origin + window.location.pathname.replace(/[^/]*$/, '') + 'journal.html#' + encodeURIComponent(e.id);
+    } catch(err) {
+      shareUrl = 'journal.html#' + encodeURIComponent(e.id);
+    }
+    var shareText = e.title_html.replace(/<[^>]+>/g,'');
+
+    var fbHref = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl);
+    var xHref  = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl);
+    var liHref = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(shareUrl);
+
+    var heroHtml = e.hero
+      ? '<div class="j-hero"><img src="'+ window.escAttr(e.hero) +'" alt="'+ window.escAttr(shareText) +'" loading="lazy"><div class="j-cat-tag">'+ window.esc(e.category) +'</div></div>'
+      : '';
+
+    return '<article class="j-card" id="'+ window.escAttr(e.id) +'">'+
+      heroHtml +
+      '<div class="j-body">'+
+        '<div class="j-meta">'+ window.esc(e.date) +' <span class="dot"></span> '+ window.esc(e.read_time || '5 min read') +'</div>'+
+        '<h2 class="j-title">'+ e.title_html /* trusted: from our own data */ +'</h2>'+
+        '<p class="j-excerpt">'+ window.esc(e.excerpt) +'</p>'+
+        '<div class="j-footer">'+
+          '<span class="j-more">Full article in preparation</span>'+
+          '<div class="j-share" data-share-url="'+ window.escAttr(shareUrl) +'">'+
+            shareButton(fbHref, window.ICON_FB, 'Facebook') +
+            shareButton(xHref,  window.ICON_X,  'X') +
+            shareButton(liHref, window.ICON_LI, 'LinkedIn') +
+            '<button type="button" class="j-copy" title="Copy link" aria-label="Copy link">'+ window.ICON_LINK +'</button>' +
+          '</div>'+
+        '</div>'+
+      '</div>'+
+    '</article>';
+  }
+
+  grid.innerHTML = entries.map(buildCard).join('');
+
+  /* Wire copy-link buttons */
+  grid.addEventListener('click', function(ev){
+    var btn = ev.target.closest('.j-copy');
+    if(!btn) return;
+    ev.preventDefault();
+    var url = btn.parentElement.getAttribute('data-share-url') || window.location.href;
+    /* Use clipboard API with textarea fallback for file:// contexts */
+    function flashOk(){
+      btn.classList.add('copied-flash');
+      var prev = btn.getAttribute('title');
+      btn.setAttribute('title','Link copied!');
+      setTimeout(function(){ btn.classList.remove('copied-flash'); btn.setAttribute('title', prev || 'Copy link'); }, 1400);
+    }
+    try{
+      if(navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(url).then(flashOk, function(){
+          fallbackCopy(url, flashOk);
+        });
+      } else {
+        fallbackCopy(url, flashOk);
+      }
+    }catch(err){ fallbackCopy(url, flashOk); }
+  });
+  function fallbackCopy(text, onOk){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); onOk(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+})();
+</script>
+</body>
+</html>

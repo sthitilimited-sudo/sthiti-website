@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- Security headers (meta-tag fallback). For maximum protection, set these
+     as HTTP response headers on the server too — see .htaccess and _headers. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Services — Sthiti Limited</title>
+<meta name="description" content="Five disciplines, one line of authority — Architecture, Masterplan, Landscape, Interior, Construction Management.">
+<link rel="icon" type="image/jpeg" href="sthiti-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Bengali:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sthiti.css">
+<style>
+.svc-hero{padding:160px 56px 96px;background:var(--paper);border-bottom:1px solid var(--rule);}
+.svc-hero .eyebrow{margin-bottom:36px;}
+.svc-hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:start;}
+.svc-hero h1{font-family:'Playfair Display',serif;font-weight:300;font-size:clamp(2.2rem,5vw,4.4rem);line-height:1.05;letter-spacing:-.018em;margin-bottom:36px;color:var(--charcoal);}
+.svc-hero h1 em{font-style:italic;color:var(--charcoal);}
+.svc-hero .lede{font-size:1.18rem;line-height:1.85;color:var(--taupe);max-width:560px;}
+.svc-hero .right p{font-size:1.02rem;line-height:1.85;color:var(--taupe);margin-bottom:36px;}
+
+.disc-nav{display:flex;flex-wrap:wrap;gap:30px 36px;}
+.disc-nav a{display:inline-flex;align-items:baseline;gap:8px;font-size:.92rem;color:var(--charcoal);font-weight:400;border-bottom:1px solid transparent;padding-bottom:4px;transition:.2s;}
+.disc-nav a:hover{color:var(--terracotta);border-bottom-color:var(--terracotta);}
+.disc-nav .rn{font-family:'Playfair Display',serif;font-style:italic;font-size:.85rem;color:var(--olive);}
+
+/* DISCIPLINE BLOCKS */
+.disc-block{padding:96px 56px;background:var(--sand);border-bottom:1px solid var(--rule);}
+.disc-block:nth-of-type(even){background:var(--cream);}
+.disc-grid{display:grid;grid-template-columns:80px 1fr 1fr;gap:60px;max-width:1280px;margin:0 auto;align-items:start;}
+.disc-num{font-family:'Playfair Display',serif;font-style:italic;font-size:5rem;color:var(--sage-l);line-height:.9;font-weight:300;}
+.disc-body h2{font-size:clamp(2rem,3.8vw,3rem);font-family:'Playfair Display',serif;font-weight:300;color:var(--charcoal);margin-bottom:18px;}
+.disc-body .tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--charcoal);margin-bottom:28px;display:block;}
+.disc-body p{font-size:1rem;line-height:1.85;color:var(--taupe);margin-bottom:18px;}
+
+.disc-deliver h3{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--charcoal);font-weight:500;margin-bottom:20px;font-family:'Inter',sans-serif;}
+.deliver-list{list-style:none;padding:0;margin:0;}
+.deliver-list li{border-bottom:1px solid var(--rule);}
+.deliver-list li a{display:grid;grid-template-columns:40px 1fr 20px;gap:14px;align-items:center;padding:14px 0;color:var(--charcoal);transition:.2s;font-size:.96rem;text-decoration:none;}
+.deliver-list li a:hover{color:var(--terracotta);padding-left:8px;}
+.deliver-list li a .dnum{font-family:'Playfair Display',serif;font-style:italic;font-size:.84rem;color:var(--olive);}
+.deliver-list li a .arrow{font-size:.85rem;color:var(--olive);transition:.2s;opacity:0;}
+.deliver-list li a:hover .arrow{opacity:1;color:var(--terracotta);}
+
+@media(max-width:900px){
+  .svc-hero{padding:120px 24px 64px;}
+  .svc-hero-grid{grid-template-columns:1fr;gap:36px;}
+  .disc-block{padding:64px 24px;}
+  .disc-grid{grid-template-columns:1fr;gap:24px;}
+  .disc-num{font-size:3.2rem;}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="sthiti-logo.jpg" alt="Sthiti Limited"><span class="nav-logo-text">Sthiti Limited</span></a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li><li><a href="studio.html">Studio</a></li>
+    <li><a href="services.html">Service</a></li><li><a href="journal.html">Journal</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li><li><a href="mail.html">Email</a></li>
+    <li><a href="contact.html" class="nav-cta">Enquire</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="work.html">Work</a><a href="studio.html">Studio</a><a href="services.html">Service</a>
+  <a href="journal.html">Journal</a><a href="newsletter.html">Newsletter</a><a href="mail.html">Email</a><a href="contact.html">Contact</a>
+</div>
+
+<section class="svc-hero">
+  <div class="eyebrow">Services</div>
+  <div class="svc-hero-grid">
+    <div class="left">
+      <h1>Five disciplines.<br><em>One line of authority.</em></h1>
+      <p class="lede">Most architectural practices stop at the drawing. We hold the line from first site visit through final handover &mdash; masterplan, landscape, building, interior, and the management of construction itself.</p>
+    </div>
+    <div class="right">
+      <p>We take this approach for one reason: the quality of a finished space is decided by the consistency of judgment from beginning to end. Outsource construction, and the drawings start to drift. Outsource landscape, and the building stops belonging to its site.</p>
+      <nav class="disc-nav" id="discNav"></nav>
+    </div>
+  </div>
+</section>
+
+<main id="discSections"></main>
+
+<footer id="siteFooter"></footer>
+<button class="admin-fab" id="adminFab" onclick="openAdmin()" title="Admin (Ctrl+Shift+A)">⚙</button>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="admin.js"></script>
+<script>
+(function(){
+  'use strict';
+  var disciplines = window.DISCIPLINES || [];
+
+  // Roman-numeral nav
+  var navHtml = '';
+  disciplines.forEach(function(d){
+    navHtml += '<a href="#'+ window.escAttr(d.key) +'"><span class="rn">'+ window.esc(d.roman) +'</span><span>'+ window.esc(d.title) +'</span></a>';
+  });
+  document.getElementById('discNav').innerHTML = navHtml;
+
+  // Discipline blocks
+  var sections = '';
+  disciplines.forEach(function(d){
+    sections += '<section class="disc-block" id="'+ window.escAttr(d.key) +'">';
+    sections += '<div class="disc-grid">';
+    sections += '<div class="disc-num">'+ window.esc(d.roman) +'</div>';
+    sections += '<div class="disc-body">';
+    sections += '<h2>'+ window.esc(d.title) +'</h2>';
+    sections += '<span class="tagline">\u201c'+ window.esc(d.tagline) +'\u201d</span>';
+    (d.body || []).forEach(function(para){
+      sections += '<p>'+ window.esc(para) +'</p>';
+    });
+    sections += '</div>';
+    sections += '<div class="disc-deliver">';
+    sections += '<h3>What We Deliver</h3>';
+    sections += '<ul class="deliver-list">';
+    (d.deliverables || []).forEach(function(item, idx){
+      var url = 'deliverable.html?d='+ encodeURIComponent(d.key) +'&i='+ encodeURIComponent(item.id);
+      sections += '<li><a href="'+ window.escAttr(url) +'" target="_blank" rel="noopener noreferrer">';
+      sections += '<span class="dnum">'+ String(idx + 1).padStart(2,'0') +'</span>';
+      sections += '<span>'+ window.esc(item.title) +'</span>';
+      sections += '<span class="arrow">\u2197</span>';
+      sections += '</a></li>';
+    });
+    sections += '</ul></div></div></section>';
+  });
+  document.getElementById('discSections').innerHTML = sections;
+})();
+</script>
+</body>
+</html>

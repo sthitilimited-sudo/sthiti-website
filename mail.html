@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- Security headers (meta-tag fallback). For maximum protection, set these
+     as HTTP response headers on the server too — see .htaccess and _headers. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Email — Sthiti Limited</title>
+<meta name="description" content="Webmail access and email account requests for the @sthitilimited.com domain.">
+<link rel="icon" type="image/jpeg" href="sthiti-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Bengali:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sthiti.css">
+<style>
+.mail-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1180px;margin:0 auto;padding:80px 32px 120px;}
+.mail-card{background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:44px 36px;display:flex;flex-direction:column;}
+.mail-card h2{font-size:1.5rem;font-weight:300;margin-bottom:18px;color:var(--charcoal);}
+.mail-card h2 em{color:var(--terracotta);font-style:italic;}
+.mail-card .intro{font-size:.94rem;line-height:1.8;color:var(--taupe);margin-bottom:28px;}
+
+.webmail-row{display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
+.webmail-btn{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border:1px solid var(--rule);background:var(--white);color:var(--charcoal);text-decoration:none;border-radius:2px;transition:all .25s;}
+.webmail-btn:hover{border-color:var(--forest);background:var(--cream);}
+.webmail-btn .name{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--charcoal);}
+.webmail-btn .arrow{color:var(--terracotta);font-size:.8rem;letter-spacing:.2em;}
+
+.note-box{background:var(--sand);border-left:3px solid var(--olive);padding:16px 20px;font-size:.82rem;color:var(--charcoal);line-height:1.7;border-radius:2px;margin-top:auto;}
+.note-box strong{color:var(--forest-d);}
+
+.field{margin-bottom:18px;}
+.field label{display:block;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--charcoal);font-weight:500;margin-bottom:8px;}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1px solid var(--rule);background:var(--white);color:var(--charcoal);font-family:'Inter',sans-serif;font-size:.92rem;border-radius:2px;outline:none;transition:border-color .25s;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--forest);}
+.field textarea{resize:vertical;min-height:80px;}
+
+.req-submit{margin-top:18px;padding:13px 28px;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;background:var(--terracotta);color:var(--cream);border:1.5px solid var(--terracotta);border-radius:2px;transition:all .3s;}
+.req-submit:hover{background:var(--terracotta-d);border-color:var(--terracotta-d);}
+.req-submit:disabled{opacity:.6;cursor:not-allowed;}
+
+.success-msg,.error-msg{display:none;margin-top:18px;padding:14px 18px;border-radius:3px;font-size:.88rem;line-height:1.6;}
+.success-msg{background:rgba(31,95,58,.08);border:1px solid rgba(31,95,58,.3);color:var(--forest-d);}
+.error-msg{background:rgba(184,92,56,.08);border:1px solid rgba(184,92,56,.3);color:var(--terracotta-d);}
+.success-msg.visible,.error-msg.visible{display:block;}
+
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+
+@media(max-width:900px){
+  .mail-grid{grid-template-columns:1fr;padding:48px 16px 80px;gap:28px;}
+  .mail-card{padding:32px 24px;}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="sthiti-logo.jpg" alt="Sthiti Limited"><span class="nav-logo-text">Sthiti Limited</span></a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li><li><a href="studio.html">Studio</a></li>
+    <li><a href="services.html">Service</a></li><li><a href="journal.html">Journal</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li><li><a href="mail.html">Email</a></li>
+    <li><a href="contact.html" class="nav-cta">Enquire</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="work.html">Work</a><a href="studio.html">Studio</a><a href="services.html">Service</a>
+  <a href="journal.html">Journal</a><a href="newsletter.html">Newsletter</a><a href="mail.html">Email</a><a href="contact.html">Contact</a>
+</div>
+
+<section class="page-hero">
+  <div class="eyebrow">Email</div>
+  <h1><em>@sthitilimited.com</em> mailboxes.</h1>
+  <p>Sthiti team members access their company mailboxes through the studio&rsquo;s webmail provider. If you do not yet have a mailbox, the admin team can issue one on request.</p>
+</section>
+
+<div class="mail-grid">
+  <!-- LOGIN GATEWAY -->
+  <div class="mail-card">
+    <h2>Webmail <em>login</em>.</h2>
+    <p class="intro">Choose your webmail provider below. You will be taken to the secure login page operated by the provider &mdash; Sthiti Limited does not handle or see your password.</p>
+
+    <div class="webmail-row">
+      <a href="https://mail.zoho.com" target="_blank" rel="noopener noreferrer" class="webmail-btn">
+        <span class="name">Zoho Mail</span>
+        <span class="arrow">LOGIN &rarr;</span>
+      </a>
+      <a href="https://mail.google.com" target="_blank" rel="noopener noreferrer" class="webmail-btn">
+        <span class="name">Google Workspace</span>
+        <span class="arrow">LOGIN &rarr;</span>
+      </a>
+      <a href="https://outlook.office.com" target="_blank" rel="noopener noreferrer" class="webmail-btn">
+        <span class="name">Microsoft 365</span>
+        <span class="arrow">LOGIN &rarr;</span>
+      </a>
+    </div>
+
+    <div class="note-box">
+      <strong>For studio admin:</strong> @sthitilimited.com mailboxes require a configured email service. Recommended provider for Bangladesh practices is Zoho Mail (free for up to 5 mailboxes at 5GB each), with Google Workspace ($6/user/month) as an alternative when calendar and Drive integration is needed. Once configured, remove the providers that are not in use from the list above.
+    </div>
+  </div>
+
+  <!-- ACCOUNT REQUEST -->
+  <div class="mail-card">
+    <h2>Request a <em>new</em> mailbox.</h2>
+    <p class="intro">If you are a Sthiti team member without an @sthitilimited.com mailbox, the admin team will set one up. Submit the request below.</p>
+
+    <form id="mailForm" novalidate>
+      <div class="field">
+        <label for="mr-name">Full Name</label>
+        <input type="text" id="mr-name" name="name" required maxlength="120" autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="mr-personal">Personal Email (for delivery confirmation)</label>
+        <input type="email" id="mr-personal" name="personal_email" required maxlength="200" autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="mr-role">Role / Position</label>
+        <input type="text" id="mr-role" name="role" required maxlength="120">
+      </div>
+      <div class="field">
+        <label for="mr-suggest">Preferred Username</label>
+        <input type="text" id="mr-suggest" name="username" maxlength="50" placeholder="e.g. firstname  &rarr;  firstname@sthitilimited.com">
+      </div>
+      <!-- Honeypot -->
+      <div class="hp" aria-hidden="true">
+        <label>Leave empty<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <button type="submit" class="req-submit" id="mrSubmit">Submit Request &rarr;</button>
+      <div class="success-msg" id="mrSuccess">Request submitted. Studio admin will confirm and set up your mailbox.</div>
+      <div class="error-msg" id="mrError"></div>
+    </form>
+  </div>
+</div>
+
+<footer id="siteFooter"></footer>
+<button class="admin-fab" id="adminFab" onclick="openAdmin()" title="Admin (Ctrl+Shift+A)">⚙</button>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="admin.js"></script>
+<script>
+(function(){
+  'use strict';
+  var WEB3FORMS_KEY = '74b8d4f5-9279-4b1f-8bf6-fc5032881540';
+
+  var form = document.getElementById('mailForm');
+  var btn  = document.getElementById('mrSubmit');
+  var ok   = document.getElementById('mrSuccess');
+  var err  = document.getElementById('mrError');
+
+  function showErr(msg){ err.textContent = msg; err.classList.add('visible'); ok.classList.remove('visible'); }
+  function showOk(){ ok.classList.add('visible'); err.classList.remove('visible'); form.reset(); }
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    err.classList.remove('visible');
+    ok.classList.remove('visible');
+
+    var name = form.elements.name.value.trim();
+    var pem = form.elements.personal_email.value.trim();
+    var role = form.elements.role.value.trim();
+    var user = form.elements.username.value.trim();
+    var honeypot = form.elements.botcheck.value;
+
+    if(honeypot){ showOk(); return; }
+    if(!name || name.length > 120){ showErr('Please enter your full name.'); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(pem) || pem.length > 200){ showErr('Please enter a valid personal email.'); return; }
+    if(!role || role.length > 120){ showErr('Please enter your role.'); return; }
+    if(user && !/^[a-z0-9._-]+$/i.test(user)){ showErr('Preferred username can only contain letters, numbers, dot, dash and underscore.'); return; }
+
+    if(WEB3FORMS_KEY === 'YOUR-WEB3FORMS-KEY-HERE'){
+      showErr('Form is not yet configured. Please email info@sthitilimited.com directly with your request.');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    try {
+      var res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: 'New Mailbox Request — Sthiti Limited',
+          from_name: name,
+          email: pem,
+          message: 'New mailbox request from sthitilimited.com\n\n' +
+                   'Name: ' + name + '\n' +
+                   'Role: ' + role + '\n' +
+                   'Personal Email: ' + pem + '\n' +
+                   'Preferred Username: ' + (user || '(none specified)')
+        })
+      });
+      var data = await res.json();
+      if(data && data.success){ showOk(); }
+      else { showErr((data && data.message) || 'Could not send. Please email info@sthitilimited.com directly.'); }
+    } catch(ex){
+      showErr('Network error. Please email info@sthitilimited.com directly.');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = 'Submit Request &rarr;';
+    }
+  });
+})();
+</script>
+</body>
+</html>

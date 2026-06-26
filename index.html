@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- Security headers (meta-tag fallback). For maximum protection, set these
+     as HTTP response headers on the server too — see .htaccess and _headers. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Sthiti Limited — Architecture, Masterplan, Landscape, Interior, Construction Management · Bangladesh</title>
+<meta name="description" content="Sthiti Limited is a Bangladesh-based architecture studio working across masterplan, landscape, building, interior, and construction management. Founded 2016, Dhaka.">
+<link rel="icon" type="image/jpeg" href="sthiti-logo.jpg">
+<meta property="og:title" content="Sthiti Limited — Architecture Studio, Bangladesh">
+<meta property="og:description" content="Five disciplines. One line of authority.">
+<meta property="og:image" content="sthiti-logo.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Bengali:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sthiti.css">
+
+<style>
+html,body{overflow:hidden;height:100%;background:#0a0a0a;}
+nav{background:rgba(20,15,10,.38);backdrop-filter:blur(14px);border-bottom-color:rgba(244,239,230,.10);}
+nav.scrolled{background:rgba(20,15,10,.62);}
+.nav-logo img{background:transparent;padding:0;border-radius:0;filter:brightness(1.15) saturate(1.2) drop-shadow(0 1px 3px rgba(0,0,0,.4));}
+.nav-logo-text{color:#7BC495!important;text-shadow:0 1px 4px rgba(0,0,0,.6);}
+.nav-links a{color:rgba(244,239,230,.86)!important;}
+.nav-links a:hover{color:#D89171!important;border-bottom-color:#D89171!important;}
+.nav-cta{border-color:#D89171!important;color:#D89171!important;}
+.nav-cta:hover{background:#D89171!important;color:#2A2520!important;}
+.nav-hamburger span{background:#F4EFE6;}
+
+.show{position:fixed;inset:0;z-index:1;background:#0a0a0a;overflow:hidden;}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s ease;}
+.slide.active{opacity:1;}
+.slide img{width:100%;height:100%;object-fit:cover;}
+.slide::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,15,10,.42) 0%,rgba(20,15,10,0) 25%,rgba(20,15,10,0) 55%,rgba(20,15,10,.78) 100%);pointer-events:none;}
+
+.cap{position:fixed;bottom:72px;left:64px;z-index:5;color:#F4EFE6;max-width:54vw;pointer-events:none;}
+.cap-cat{font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(244,239,230,.7);margin-bottom:16px;}
+.cap-cat::before{content:'';display:inline-block;width:32px;height:1px;background:rgba(244,239,230,.42);vertical-align:middle;margin-right:14px;}
+.cap-t{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.6vw,3.2rem);font-weight:300;line-height:1.08;letter-spacing:-.018em;margin-bottom:10px;text-shadow:0 2px 12px rgba(0,0,0,.35);}
+.cap-t em{font-style:italic;color:#D89171;}
+.cap-meta{font-size:.82rem;color:rgba(244,239,230,.62);letter-spacing:.05em;}
+
+.side{position:fixed;bottom:72px;right:64px;z-index:5;text-align:right;color:#F4EFE6;}
+.side-tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;font-weight:300;color:rgba(244,239,230,.82);line-height:1.5;max-width:280px;margin-bottom:18px;}
+.side-tagline em{color:#fff;font-style:normal;border-bottom:1px solid rgba(216,145,113,.6);padding-bottom:1px;}
+.side-cta{display:inline-flex;align-items:center;gap:10px;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:#F4EFE6;text-decoration:none;padding:11px 24px;border:1px solid rgba(244,239,230,.55);transition:all .25s;border-radius:2px;}
+.side-cta:hover{background:#D89171;color:#2A2520;border-color:#D89171;}
+
+.dots{position:fixed;top:50%;right:32px;transform:translateY(-50%);z-index:5;display:flex;flex-direction:column;gap:11px;}
+.dots button{width:8px;height:8px;padding:0;background:rgba(244,239,230,.32);border:none;border-radius:50%;cursor:pointer;transition:all .3s;}
+.dots button.active{background:#D89171;transform:scale(1.5);}
+
+.counter{position:fixed;top:50%;left:32px;transform:translateY(-50%) rotate(-90deg);transform-origin:left top;z-index:5;font-family:'Playfair Display',serif;font-size:.72rem;letter-spacing:.32em;color:rgba(244,239,230,.62);font-style:italic;white-space:nowrap;}
+.counter em{font-style:normal;color:#F4EFE6;font-size:1rem;}
+
+.prog{position:fixed;bottom:0;left:0;right:0;height:2px;background:rgba(244,239,230,.08);z-index:5;}
+.prog-fill{height:100%;background:#D89171;width:0%;}
+
+#intro{position:fixed;inset:0;z-index:1000;background:#F4EFE6;display:flex;align-items:center;justify-content:center;animation:introHide 2.6s ease forwards;}
+#intro img{height:220px;width:auto;animation:logoFade 2.4s ease forwards;filter:saturate(1.15);}
+@keyframes logoFade{0%{opacity:0;transform:scale(.92);}25%{opacity:1;transform:scale(1);}80%{opacity:1;}100%{opacity:0;}}
+@keyframes introHide{0%,82%{opacity:1;}100%{opacity:0;visibility:hidden;pointer-events:none;}}
+
+@media(max-width:900px){
+  .cap{left:24px;bottom:54px;max-width:84vw;}
+  .side{right:24px;bottom:54px;}
+  .side-tagline{font-size:.9rem;max-width:220px;}
+  .dots{right:14px;}
+  .counter{left:18px;font-size:.6rem;}
+}
+@media(max-width:560px){
+  .side{display:none;}
+  .cap{bottom:44px;max-width:90vw;right:24px;}
+  .cap-t{font-size:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<div id="intro"><img src="sthiti-logo.jpg" alt="Sthiti Limited"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="sthiti-logo.jpg" alt="Sthiti Limited">
+    <span class="nav-logo-text">Sthiti Limited</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li>
+    <li><a href="studio.html">Studio</a></li>
+    <li><a href="services.html">Service</a></li>
+    <li><a href="journal.html">Journal</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li>
+    <li><a href="mail.html">Email</a></li>
+    <li><a href="contact.html" class="nav-cta">Enquire</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="work.html">Work</a><a href="studio.html">Studio</a>
+  <a href="services.html">Service</a><a href="journal.html">Journal</a>
+  <a href="newsletter.html">Newsletter</a><a href="mail.html">Email</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="show" id="show">
+  <div class="slide active" data-i="0"><img src="images/police_war_museum_red_path.jpg" alt=""></div>
+  <div class="slide" data-i="1"><img src="images/doyal_residence_living_terracotta.jpg" alt=""></div>
+  <div class="slide" data-i="2"><img src="images/sobuj_residence_living.jpg" alt=""></div>
+  <div class="slide" data-i="3"><img src="images/narail_vacation_house_night_terrace.jpg" alt=""></div>
+  <div class="slide" data-i="4"><img src="images/dgh_hospital_exterior.jpg" alt=""></div>
+  <div class="slide" data-i="5"><img src="images/netrokona_university_masterplan.jpg" alt=""></div>
+  <div class="slide" data-i="6"><img src="images/shefali_residence_exterior.jpg" alt=""></div>
+  <div class="slide" data-i="7"><img src="images/police_war_museum_black_box.jpg" alt=""></div>
+</div>
+
+<div class="cap">
+  <div class="cap-cat" id="capCat">Civic &amp; Cultural · 2017</div>
+  <div class="cap-t" id="capT">Police Liberation War <em>Museum.</em></div>
+  <div class="cap-meta" id="capMeta">Rajarbag, Dhaka</div>
+</div>
+
+<div class="side">
+  <p class="side-tagline">An architecture<br>of <em>stillness</em>,<br>by design.</p>
+  <a href="work.html" class="side-cta">View Work →</a>
+</div>
+
+<div class="counter">Selected <em id="ctNum">01</em> / <span id="ctTotal">08</span></div>
+
+<div class="dots" id="dots">
+  <button class="active" data-i="0" aria-label="Slide 1"></button>
+  <button data-i="1" aria-label="Slide 2"></button>
+  <button data-i="2" aria-label="Slide 3"></button>
+  <button data-i="3" aria-label="Slide 4"></button>
+  <button data-i="4" aria-label="Slide 5"></button>
+  <button data-i="5" aria-label="Slide 6"></button>
+  <button data-i="6" aria-label="Slide 7"></button>
+  <button data-i="7" aria-label="Slide 8"></button>
+</div>
+
+<div class="prog"><div class="prog-fill" id="progFill"></div></div>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="admin.js"></script>
+<script>
+(function(){
+  'use strict';
+  var SLIDE_MS = 8000;
+  var cur = 0;
+  var slides = document.querySelectorAll('.slide');
+  var dotEls = document.querySelectorAll('.dots button');
+  var total = slides.length;
+
+  var CAPTIONS = [
+    {cat:'Civic & Cultural · 2017',     t:'Police Liberation War \u2014 The Red <em>Path.</em>', m:'Rajarbag, Dhaka'},
+    {cat:'Interior · 2024',             t:'Doyal Residence \u2014 Terracotta <em>Living.</em>',  m:'Tikatuli, Dhaka'},
+    {cat:'Interior · 2025',             t:'Sobuj Residence \u2014 Living <em>Room.</em>',        m:'Mirpur 10, Dhaka'},
+    {cat:'Residential · 2023\u20132024',t:'Narail Vacation <em>House.</em>',                     m:'Lohagora, Narail'},
+    {cat:'Healthcare · 2024\u2013Present',t:'Daudpur General <em>Hospital.</em>',                m:'Rupgonj, Narayanganj'},
+    {cat:'Masterplan · 2019',           t:'Netrokona University <em>Campus.</em>',               m:'Netrokona, Bangladesh'},
+    {cat:'Residential · 2025',          t:'Shefali Residence \u2014 Front <em>Elevation.</em>',  m:'Sherpur, Bangladesh'},
+    {cat:'Civic & Cultural · 2017',     t:'Police Liberation War \u2014 The Black <em>Box.</em>',m:'Rajarbag, Dhaka'}
+  ];
+
+  function updateCap(i){
+    var c = CAPTIONS[i] || {cat:'Selected Work',t:'',m:''};
+    document.getElementById('capCat').textContent = c.cat;
+    document.getElementById('capT').innerHTML = c.t;
+    document.getElementById('capMeta').textContent = c.m;
+    document.getElementById('ctNum').textContent = String(i+1).padStart(2,'0');
+  }
+  function go(i){
+    slides[cur].classList.remove('active');
+    dotEls[cur].classList.remove('active');
+    cur = (i + total) % total;
+    slides[cur].classList.add('active');
+    dotEls[cur].classList.add('active');
+    updateCap(cur);
+    resetProg();
+  }
+  function next(){ go(cur + 1); }
+  function prev(){ go(cur - 1); }
+
+  var progStart = Date.now(), rafId = 0;
+  function tick(){
+    var e = Date.now() - progStart;
+    document.getElementById('progFill').style.width = Math.min(100, (e/SLIDE_MS)*100) + '%';
+    if(e >= SLIDE_MS){ next(); return; }
+    rafId = requestAnimationFrame(tick);
+  }
+  function resetProg(){ progStart = Date.now(); cancelAnimationFrame(rafId); rafId = requestAnimationFrame(tick); }
+
+  dotEls.forEach(function(b){ b.addEventListener('click', function(){ go(parseInt(b.dataset.i, 10)); }); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight') next();
+    else if(e.key === 'ArrowLeft') prev();
+  });
+  var touchX = 0;
+  document.addEventListener('touchstart', function(e){ touchX = e.touches[0].clientX; }, {passive:true});
+  document.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - touchX;
+    if(Math.abs(dx) > 50) (dx > 0 ? prev() : next());
+  }, {passive:true});
+
+  updateCap(0);
+  resetProg();
+
+  /* Belt-and-braces: ensure the intro splash actually hides even if CSS animation is blocked */
+  var intro = document.getElementById('intro');
+  if(intro){
+    setTimeout(function(){
+      intro.style.opacity = '0';
+      intro.style.visibility = 'hidden';
+      intro.style.pointerEvents = 'none';
+    }, 2600);
+    /* And a hard removal at 4s so it never lingers under any condition */
+    setTimeout(function(){ if(intro.parentNode) intro.parentNode.removeChild(intro); }, 4000);
+    /* Dismiss on user interaction */
+    intro.addEventListener('click', function(){ intro.style.display='none'; });
+  }
+})();
+</script>
+</body>
+</html>

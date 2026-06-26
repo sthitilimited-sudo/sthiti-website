@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- Security headers (meta-tag fallback). For maximum protection, set these
+     as HTTP response headers on the server too — see .htaccess and _headers. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Profile — Sthiti Limited</title>
+<meta name="description" content="Individual profile — Sthiti Limited team member.">
+<link rel="icon" type="image/jpeg" href="sthiti-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Bengali:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sthiti.css">
+<style>
+.ph-hero{padding:160px 56px 70px;background:var(--paper);border-bottom:1px solid var(--rule);}
+.ph-hero .crumb{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);margin-bottom:24px;}
+.ph-hero .crumb a{color:var(--olive);border-bottom:1px solid transparent;transition:.2s;}
+.ph-hero .crumb a:hover{color:var(--terracotta);border-bottom-color:var(--terracotta);}
+.ph-hero-grid{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start;max-width:1080px;}
+.ph-photo{width:280px;height:340px;background:var(--sand);border-radius:3px;overflow:hidden;border:1px solid var(--rule);}
+.ph-photo img{width:100%;height:100%;object-fit:cover;}
+.ph-photo.placeholder{display:flex;align-items:center;justify-content:center;color:var(--taupe);font-family:'Playfair Display',serif;font-size:3rem;font-style:italic;}
+.ph-info h1{font-size:clamp(1.8rem,3.4vw,2.8rem);margin-bottom:10px;color:var(--charcoal);}
+.ph-info .role{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--forest);margin-bottom:14px;font-weight:500;}
+.ph-info .tl{font-size:.78rem;color:var(--taupe);font-style:italic;}
+.ph-info .em{font-size:.78rem;color:var(--taupe);margin-top:14px;}
+.ph-info .em a{color:var(--terracotta);border-bottom:1px solid transparent;transition:.2s;}
+.ph-info .em a:hover{border-bottom-color:var(--terracotta);}
+.ph-info .ph-socials{display:flex;gap:10px;margin-top:18px;}
+.ph-info .ph-socials a,.ph-info .ph-socials span{width:34px;height:34px;border:1px solid var(--rule);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--forest);transition:.25s;background:transparent;text-decoration:none;}
+.ph-info .ph-socials a:hover{background:var(--forest);color:var(--cream);border-color:var(--forest);}
+.ph-info .ph-socials svg{width:14px;height:14px;fill:currentColor;}
+.ph-info .ph-socials .disabled{opacity:.28;cursor:default;pointer-events:none;}
+
+.ph-section{padding:64px 56px;max-width:1080px;margin:0 auto;border-bottom:1px solid var(--rule);}
+.ph-section:last-of-type{border-bottom:none;}
+.ph-section.dark{background:var(--forest);max-width:none;color:var(--cream);margin:0;}
+.ph-section.dark .ph-num{color:rgba(244,239,230,.4);}
+.ph-section.dark h2{color:var(--cream);}
+.ph-section.dark p{color:rgba(244,239,230,.85);}
+.ph-section.dark .inner{max-width:1080px;margin:0 auto;}
+.ph-num{font-family:'Playfair Display',serif;font-style:italic;font-size:.85rem;color:var(--olive);margin-bottom:14px;letter-spacing:.02em;}
+.ph-section h2{font-size:clamp(1.6rem,2.8vw,2.2rem);font-family:'Playfair Display',serif;font-weight:300;color:var(--charcoal);margin-bottom:22px;}
+.ph-section h2 em{font-style:italic;color:var(--terracotta);}
+.ph-section.dark h2 em{color:var(--clay);}
+.ph-section p{font-size:1.02rem;line-height:1.95;color:var(--taupe);max-width:780px;}
+.ph-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
+.ph-tag{padding:7px 16px;background:var(--sand);color:var(--charcoal);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;border-radius:24px;border:1px solid var(--rule);font-weight:500;}
+
+.notfound{padding:200px 56px;text-align:center;}
+
+@media(max-width:760px){
+  .ph-hero{padding:120px 24px 50px;}
+  .ph-hero-grid{grid-template-columns:1fr;gap:28px;}
+  .ph-photo{width:100%;max-width:280px;}
+  .ph-section{padding:48px 24px;}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="sthiti-logo.jpg" alt="Sthiti Limited"><span class="nav-logo-text">Sthiti Limited</span></a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li><li><a href="studio.html">Studio</a></li>
+    <li><a href="services.html">Service</a></li><li><a href="journal.html">Journal</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li><li><a href="mail.html">Email</a></li>
+    <li><a href="contact.html" class="nav-cta">Enquire</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="work.html">Work</a><a href="studio.html">Studio</a><a href="services.html">Service</a>
+  <a href="journal.html">Journal</a><a href="newsletter.html">Newsletter</a><a href="mail.html">Email</a><a href="contact.html">Contact</a>
+</div>
+
+<main id="personMain"></main>
+
+<footer id="siteFooter"></footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="admin.js"></script>
+<script>
+(function(){
+  'use strict';
+  function getParam(name){
+    var match = window.location.search.match(new RegExp('[?&]'+ name +'=([^&]+)'));
+    return match ? decodeURIComponent(match[1]) : '';
+  }
+  var id = getParam('id');
+  var p = window.findPerson(id);
+  var main = document.getElementById('personMain');
+
+  if(!p){
+    main.innerHTML =
+      '<div class="notfound"><h1>Profile not <em>found.</em></h1>'+
+      '<p>The requested team profile could not be located.</p>'+
+      '<p style="margin-top:28px;"><a href="team.html" class="btn">← Back to team</a></p></div>';
+    return;
+  }
+
+  var tab = window.findPersonTab(id);
+  var tabLabel = {active:'Currently Active', advisors:'Honorary Advisors', contributors:'Past Contributors'}[tab] || 'Team';
+
+  /* Build social links safely */
+  var socialHtml = '';
+  var links = p.links || {};
+  function socialLink(url, svg, title){
+    var safe = window.safeUrl(url);
+    if(!safe){
+      return '<span class="disabled" title="'+ window.escAttr(title + ' (not set)') +'" aria-hidden="true">'+ svg +'</span>';
+    }
+    return '<a href="'+ window.escAttr(safe) +'" target="_blank" rel="noopener noreferrer" title="'+ window.escAttr(title) +'" aria-label="'+ window.escAttr(title) +'">'+ svg +'</a>';
+  }
+  socialHtml += socialLink(links.facebook, window.ICON_FB, 'Facebook');
+  socialHtml += socialLink(links.instagram, window.ICON_IG, 'Instagram');
+  socialHtml += socialLink(links.x, window.ICON_X, 'X (Twitter)');
+  socialHtml += socialLink(links.linkedin, window.ICON_LI, 'LinkedIn');
+
+  /* Hero block */
+  var nameParts = String(p.name).split(' ');
+  var lastName = nameParts.length > 1 ? nameParts.pop() : '';
+  var nameHtml = window.esc(nameParts.join(' ')) + (lastName ? ' <em>'+ window.esc(lastName) +'</em>' : '');
+
+  var photoHtml;
+  if(p.photo){
+    photoHtml = '<div class="ph-photo"><img src="'+ window.escAttr(p.photo) +'" alt="'+ window.escAttr(p.name) +'"></div>';
+  } else {
+    var initials = nameParts.map(function(x){return x.charAt(0);}).join('') + (lastName ? lastName.charAt(0) : '');
+    photoHtml = '<div class="ph-photo placeholder">'+ window.esc(initials.slice(0,2)) +'</div>';
+  }
+
+  var html = '';
+  html += '<section class="ph-hero">';
+  html += '<div class="crumb"><a href="team.html#'+ window.escAttr(tab) +'">← '+ window.esc(tabLabel) +'</a></div>';
+  html += '<div class="ph-hero-grid">';
+  html += photoHtml;
+  html += '<div class="ph-info">';
+  html += '<h1>'+ nameHtml +'</h1>';
+  html += '<div class="role">'+ window.esc(p.role) +'</div>';
+  html += '<div class="tl">'+ window.esc(p.timeline) +'</div>';
+  if(p.email){
+    var emailSafe = window.safeUrl('mailto:' + p.email);
+    if(emailSafe){
+      html += '<div class="em">Email: <a href="'+ window.escAttr(emailSafe) +'">'+ window.esc(p.email) +'</a></div>';
+    }
+  }
+  if(socialHtml){ html += '<div class="ph-socials">'+ socialHtml +'</div>'; }
+  html += '</div></div></section>';
+
+  /* Section 01 — Expertise */
+  html += '<section class="ph-section">';
+  html += '<div class="ph-num">01</div>';
+  html += '<h2><em>Expertise</em></h2>';
+  html += '<div class="ph-tags">';
+  (p.expertise || []).forEach(function(tag){
+    html += '<span class="ph-tag">'+ window.esc(tag) +'</span>';
+  });
+  html += '</div></section>';
+
+  /* Section 02 — Work Experience */
+  html += '<section class="ph-section">';
+  html += '<div class="ph-num">02</div>';
+  html += '<h2>Work <em>Experience</em></h2>';
+  html += '<p>'+ window.esc(p.experience) +'</p>';
+  html += '</section>';
+
+  /* Section 03 — How they enrich Sthiti */
+  html += '<section class="ph-section">';
+  html += '<div class="ph-num">03</div>';
+  html += '<h2>How they enrich Sthiti <em>Limited</em></h2>';
+  html += '<p>'+ window.esc(p.enrich) +'</p>';
+  html += '</section>';
+
+  /* Section 04 — Acknowledgement (dark) */
+  html += '<section class="ph-section dark"><div class="inner">';
+  html += '<div class="ph-num">04</div>';
+  html += '<h2><em>Acknowledgement</em></h2>';
+  html += '<p>'+ window.esc(p.acknowledgement) +'</p>';
+  html += '</div></section>';
+
+  main.innerHTML = html;
+  document.title = p.name + ' — Sthiti Limited';
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- Security headers (meta-tag fallback). For maximum protection, set these
+     as HTTP response headers on the server too — see .htaccess and _headers. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Page Not Found — Sthiti Limited</title>
+<meta name="description" content="The page you requested could not be found.">
+<link rel="icon" type="image/jpeg" href="sthiti-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Bengali:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sthiti.css">
+<style>
+.nf-wrap{min-height:calc(100vh - 200px);display:flex;align-items:center;justify-content:center;padding:140px 32px 80px;}
+.nf-inner{max-width:620px;text-align:center;}
+.nf-num{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(6rem,18vw,11rem);color:var(--terracotta);line-height:.95;font-weight:300;letter-spacing:-.02em;margin-bottom:8px;}
+.nf-inner h1{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:300;margin-bottom:18px;color:var(--charcoal);}
+.nf-inner h1 em{color:var(--terracotta);font-style:italic;}
+.nf-inner p{font-size:1rem;line-height:1.85;color:var(--taupe);margin-bottom:36px;}
+.nf-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="sthiti-logo.jpg" alt="Sthiti Limited"><span class="nav-logo-text">Sthiti Limited</span></a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li><li><a href="studio.html">Studio</a></li>
+    <li><a href="services.html">Service</a></li><li><a href="journal.html">Journal</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li><li><a href="mail.html">Email</a></li>
+    <li><a href="contact.html" class="nav-cta">Enquire</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="work.html">Work</a><a href="studio.html">Studio</a><a href="services.html">Service</a>
+  <a href="journal.html">Journal</a><a href="newsletter.html">Newsletter</a><a href="mail.html">Email</a><a href="contact.html">Contact</a>
+</div>
+
+<div class="nf-wrap">
+  <div class="nf-inner">
+    <div class="nf-num">404</div>
+    <h1>The page you requested <em>could not be found</em>.</h1>
+    <p>It may have been moved, renamed, or it never existed. Head back to the studio, or explore our work below.</p>
+    <div class="nf-buttons">
+      <a href="index.html" class="btn">&larr; Return Home</a>
+      <a href="work.html" class="btn btn-fill">View Work</a>
+    </div>
+  </div>
+</div>
+
+<footer id="siteFooter"></footer>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+</body>
+</html>

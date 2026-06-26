@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- Security headers (meta-tag fallback). For maximum protection, set these
+     as HTTP response headers on the server too — see .htaccess and _headers. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Contact — Sthiti Limited</title>
+<meta name="description" content="Send an enquiry to Sthiti Limited — architecture, masterplan, landscape, interior, construction management.">
+<link rel="icon" type="image/jpeg" href="sthiti-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;700&family=Noto+Serif+Bengali:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sthiti.css">
+<style>
+.c-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:60px;max-width:1180px;margin:0 auto;padding:80px 32px 120px;align-items:start;}
+
+.c-info h2{font-size:clamp(1.5rem,2.6vw,1.9rem);font-weight:300;margin-bottom:24px;color:var(--charcoal);}
+.c-info h2 em{color:var(--terracotta);font-style:italic;}
+.c-info p{font-size:.96rem;line-height:1.85;margin-bottom:24px;color:var(--taupe);}
+.c-detail{margin-top:32px;padding-top:24px;border-top:1px solid var(--rule);}
+.c-detail .row{margin-bottom:18px;}
+.c-detail .label{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--olive);font-weight:500;margin-bottom:6px;}
+.c-detail .val{font-size:.96rem;color:var(--charcoal);line-height:1.6;}
+.c-detail .val a{color:var(--forest);border-bottom:1px solid var(--rule);}
+.c-detail .val a:hover{color:var(--terracotta);border-bottom-color:var(--terracotta);}
+
+.c-form{background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:44px 40px;}
+.c-form h2{font-size:1.5rem;font-weight:300;margin-bottom:8px;color:var(--charcoal);}
+.c-form h2 em{color:var(--terracotta);font-style:italic;}
+.c-form .form-intro{font-size:.86rem;color:var(--taupe);margin-bottom:28px;line-height:1.6;}
+
+.field{margin-bottom:18px;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.field label{display:block;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--charcoal);font-weight:500;margin-bottom:8px;}
+.field label .req{color:var(--terracotta);}
+.field input,.field select,.field textarea{width:100%;padding:13px 15px;border:1px solid var(--rule);background:var(--white);color:var(--charcoal);font-family:'Inter',sans-serif;font-size:.92rem;border-radius:2px;outline:none;transition:border-color .25s;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--forest);}
+.field textarea{resize:vertical;min-height:140px;line-height:1.6;}
+.field select{cursor:pointer;}
+
+.c-submit{margin-top:12px;padding:14px 32px;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;background:var(--terracotta);color:var(--cream);border:1.5px solid var(--terracotta);border-radius:2px;transition:all .3s;width:100%;}
+.c-submit:hover{background:var(--terracotta-d);border-color:var(--terracotta-d);}
+.c-submit:disabled{opacity:.6;cursor:not-allowed;}
+
+.success-msg,.error-msg{display:none;margin-top:18px;padding:14px 18px;border-radius:3px;font-size:.88rem;line-height:1.6;}
+.success-msg{background:rgba(31,95,58,.08);border:1px solid rgba(31,95,58,.3);color:var(--forest-d);}
+.error-msg{background:rgba(184,92,56,.08);border:1px solid rgba(184,92,56,.3);color:var(--terracotta-d);}
+.success-msg.visible,.error-msg.visible{display:block;}
+
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+
+@media(max-width:900px){
+  .c-grid{grid-template-columns:1fr;gap:36px;padding:48px 16px 80px;}
+  .c-form{padding:32px 24px;}
+  .field-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="sthiti-logo.jpg" alt="Sthiti Limited"><span class="nav-logo-text">Sthiti Limited</span></a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li><li><a href="studio.html">Studio</a></li>
+    <li><a href="services.html">Service</a></li><li><a href="journal.html">Journal</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li><li><a href="mail.html">Email</a></li>
+    <li><a href="contact.html" class="nav-cta">Enquire</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="work.html">Work</a><a href="studio.html">Studio</a><a href="services.html">Service</a>
+  <a href="journal.html">Journal</a><a href="newsletter.html">Newsletter</a><a href="mail.html">Email</a><a href="contact.html">Contact</a>
+</div>
+
+<section class="page-hero">
+  <div class="eyebrow">Contact</div>
+  <h1><em>Begin</em> a conversation.</h1>
+  <p>Send a note describing the site, the programme and the timeline you are working to. The studio will respond within five working days.</p>
+</section>
+
+<div class="c-grid">
+  <!-- INFO PANEL -->
+  <aside class="c-info">
+    <h2>Sthiti <em>Limited</em>.</h2>
+    <p>A Bangladesh-based practice in architecture, masterplan, landscape, interior and construction management. The studio works on civic, residential and institutional briefs and is led by founder &amp; principal architect Tajbir Ahmed Khan Rupok.</p>
+
+    <div class="c-detail">
+      <div class="row">
+        <div class="label">Studio Address</div>
+        <div class="val">Noor Mahal, Ground Floor<br>44/2 Lake Circus, Kolabagan<br>Dhaka-1205, Bangladesh</div>
+      </div>
+      <div class="row">
+        <div class="label">General Email</div>
+        <div class="val"><a href="mailto:info@sthitilimited.com">info@sthitilimited.com</a></div>
+      </div>
+      <div class="row">
+        <div class="label">Principal Architect</div>
+        <div class="val"><a href="mailto:tajbir@sthitilimited.com">tajbir@sthitilimited.com</a></div>
+      </div>
+      <div class="row">
+        <div class="label">WhatsApp</div>
+        <div class="val"><a href="https://wa.me/8801724453300" target="_blank" rel="noopener noreferrer">+880 1724 453 300</a></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- FORM PANEL -->
+  <div class="c-form">
+    <h2>Send an <em>enquiry</em>.</h2>
+    <p class="form-intro">All fields marked <span style="color:var(--terracotta);">*</span> are required. Your message goes directly to the studio inbox.</p>
+
+    <form id="cForm" novalidate>
+      <div class="field-row">
+        <div class="field">
+          <label for="c-name">Name <span class="req">*</span></label>
+          <input type="text" id="c-name" name="name" required maxlength="120" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="c-email">Email <span class="req">*</span></label>
+          <input type="email" id="c-email" name="email" required maxlength="200" autocomplete="email">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="c-phone">Phone</label>
+          <input type="text" id="c-phone" name="phone" maxlength="40" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="c-discipline">Enquiry Type <span class="req">*</span></label>
+          <select id="c-discipline" name="discipline" required>
+            <option value="">Select discipline...</option>
+            <option value="architecture">Architecture</option>
+            <option value="masterplan">Masterplan</option>
+            <option value="landscape">Landscape</option>
+            <option value="interior">Interior</option>
+            <option value="construction-management">Construction Management</option>
+            <option value="press">Press / Journal Enquiry</option>
+            <option value="career">Career Enquiry</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="c-subject">Project / Subject</label>
+        <input type="text" id="c-subject" name="subject" maxlength="200" placeholder="e.g. Residential interior, Mirpur 10">
+      </div>
+      <div class="field">
+        <label for="c-message">Message <span class="req">*</span></label>
+        <textarea id="c-message" name="message" required maxlength="3000" placeholder="Tell us about the site, the programme, and the timeline you are working to."></textarea>
+      </div>
+      <!-- Honeypot -->
+      <div class="hp" aria-hidden="true">
+        <label>Leave empty<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <button type="submit" class="c-submit" id="cSubmit">Send Enquiry &rarr;</button>
+      <div class="success-msg" id="cSuccess">Thank you &mdash; your message has reached the studio. The team will respond within five working days.</div>
+      <div class="error-msg" id="cError"></div>
+    </form>
+  </div>
+</div>
+
+<footer id="siteFooter"></footer>
+<button class="admin-fab" id="adminFab" onclick="openAdmin()" title="Admin (Ctrl+Shift+A)">⚙</button>
+
+<script src="data.js"></script>
+<script src="common.js"></script>
+<script src="admin.js"></script>
+<script>
+(function(){
+  'use strict';
+  var WEB3FORMS_KEY = '74b8d4f5-9279-4b1f-8bf6-fc5032881540';
+
+  var form = document.getElementById('cForm');
+  var btn  = document.getElementById('cSubmit');
+  var ok   = document.getElementById('cSuccess');
+  var err  = document.getElementById('cError');
+
+  function showErr(msg){ err.textContent = msg; err.classList.add('visible'); ok.classList.remove('visible'); }
+  function showOk(){ ok.classList.add('visible'); err.classList.remove('visible'); form.reset(); }
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    err.classList.remove('visible');
+    ok.classList.remove('visible');
+
+    var name = form.elements.name.value.trim();
+    var email = form.elements.email.value.trim();
+    var phone = form.elements.phone.value.trim();
+    var disc = form.elements.discipline.value;
+    var subject = form.elements.subject.value.trim();
+    var message = form.elements.message.value.trim();
+    var honeypot = form.elements.botcheck.value;
+
+    if(honeypot){ showOk(); return; }
+    if(!name || name.length > 120){ showErr('Please enter your name.'); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 200){ showErr('Please enter a valid email address.'); return; }
+    if(phone && phone.length > 40){ showErr('Phone number is too long.'); return; }
+    var validDisc = ['architecture','masterplan','landscape','interior','construction-management','press','career','other'];
+    if(!disc || validDisc.indexOf(disc) === -1){ showErr('Please select an enquiry type.'); return; }
+    if(!message || message.length > 3000){ showErr('Please write a message (max 3000 characters).'); return; }
+
+    if(WEB3FORMS_KEY === 'YOUR-WEB3FORMS-KEY-HERE'){
+      showErr('Form is not yet configured. Please email info@sthitilimited.com directly &mdash; the studio will respond within five working days.');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    try {
+      var res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: 'Enquiry: ' + disc + ' — ' + (subject || 'No subject') + ' — Sthiti Limited',
+          from_name: name,
+          email: email,
+          message:
+            'Enquiry from sthitilimited.com\n\n' +
+            'Name: ' + name + '\n' +
+            'Email: ' + email + '\n' +
+            (phone ? 'Phone: ' + phone + '\n' : '') +
+            'Discipline: ' + disc + '\n' +
+            (subject ? 'Subject: ' + subject + '\n' : '') +
+            '\nMessage:\n' + message
+        })
+      });
+      var data = await res.json();
+      if(data && data.success){ showOk(); }
+      else { showErr((data && data.message) || 'Could not send. Please email info@sthitilimited.com directly.'); }
+    } catch(ex){
+      showErr('Network error. Please email info@sthitilimited.com directly.');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = 'Send Enquiry &rarr;';
+    }
+  });
+})();
+</script>
+</body>
+</html>
